@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -12,17 +11,10 @@ const contactsSlice = createSlice({
   initialState,
   reducers: {
     addContact: (state, action) => {
-      if (!state.contacts) {
-        state.contacts = { items: [] };
-      }
       state.items.push(action.payload);
     },
     deleteContact: (state, action) => {
-      if (state.contacts && state.contacts.items) {
-        state.contacts.items = state.contacts.items.filter(
-          contact => contact.id !== action.payload
-        );
-      }
+      state.items = state.items.filter(contact => contact.id !== action.payload);
     },
   },
 });

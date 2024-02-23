@@ -12,8 +12,8 @@ export const ContactList = () => {
     item.name.toLowerCase().includes(filterValue.toLowerCase())
   );
 
-  const deleteUsers = userId => {
-    dispatch(deleteContact(userId));
+  const deleteUsers = id => {
+    dispatch(deleteContact(id));
   };
 
   return (

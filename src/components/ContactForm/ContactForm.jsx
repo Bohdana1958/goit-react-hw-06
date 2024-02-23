@@ -13,7 +13,6 @@ const userSchema = Yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  // const data = useSelector(state => state.contact.contacts.items);
 
   const nameId = useId();
   const numberId = useId();
@@ -31,7 +30,6 @@ export const ContactForm = () => {
           name: values.name,
           number: values.number,
         };
-        console.log(values);
         dispatch(addContact(contacts));
         actions.resetForm();
       }}
