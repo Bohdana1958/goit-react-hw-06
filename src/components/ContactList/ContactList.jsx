@@ -5,7 +5,12 @@ import { Contact } from '../Contact/Contact';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
-  const items = useSelector(state => state.contact.contacts.items);
+  const items = useSelector(state => state.contact.items);
+  const filterValue = useSelector(state => state.filter.name);
+
+  const filteredItems = items.filter(item =>
+    item.name.toLowerCase().includes(filterValue.toLowerCase())
+  );
 
   const deleteUsers = userId => {
     dispatch(deleteContact(userId));
@@ -13,7 +18,7 @@ export const ContactList = () => {
 
   return (
     <ul className={css.list}>
-      {items.map(item => (
+      {filteredItems.map(item => (
         <Contact key={item.id} item={item} onDelete={deleteUsers} />
       ))}
     </ul>

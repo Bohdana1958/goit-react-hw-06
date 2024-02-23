@@ -4,9 +4,7 @@ import { filterList } from '../../redux/filtersSlice';
 
 export const SearchBox = () => {
   const dispatch = useDispatch();
-  const filterValue = useSelector(state => state.filters);
-
-  console.log(filterValue);
+  const filterValue = useSelector(state => state.filter.name);
 
   const handleChange = e => {
     dispatch(filterList({ name: e.target.value.trim().toLowerCase() }));

@@ -4,9 +4,7 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 const initialState = {
-  contacts: {
-    items: [],
-  },
+  items: [],
 };
 
 const contactsSlice = createSlice({
@@ -17,7 +15,7 @@ const contactsSlice = createSlice({
       if (!state.contacts) {
         state.contacts = { items: [] };
       }
-      state.contacts.items.push(action.payload);
+      state.items.push(action.payload);
     },
     deleteContact: (state, action) => {
       if (state.contacts && state.contacts.items) {

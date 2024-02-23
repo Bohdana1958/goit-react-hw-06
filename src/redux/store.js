@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import contactReducer from './contactsSlice';
+import { contactReducer } from './contactsSlice';
 import filterReducer from './filtersSlice';
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from 'redux-persist';
 
@@ -17,12 +17,3 @@ export const store = configureStore({
 });
 
 export const persistor = persistStore(store);
-
-// import { combineReducers } from 'redux';
-// import contactsReducer from './contactsSlice';
-
-// const rootReducer = combineReducers({
-//   contactReducer: contactsReducer,
-// });
-
-// export default rootReducer;
